@@ -52,4 +52,6 @@ w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
 
 valeu!
 
+não me responsabilizo por nada.
+
 toda ajuda ou melhora é bem vinda, uma vez que tem muita galera com ideias melhores e mais sofisticadas!
