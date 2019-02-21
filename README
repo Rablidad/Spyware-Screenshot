@@ -6,17 +6,26 @@ Atualização: esporadicamente ainda adiciono algumas coisas, visto que estou pr
 
 # Sobre o cliente_rvshell.py
 1-> quando em teste, usar-lo como padrao, em casos de ataques reais, mudar a extensão '.py' para '.pyw', fazendo com que o binario python reconheça que o prompt não deve ser executado.
-2-> uma versão em .exe é possivel usando a biblioteca python cx_Freeze, gerando um executavel python a partir do script python. Plataforma dependente.
+
+2-> uma versão em .exe é possivel utilizando a biblioteca python cx_Freeze, gerando um executavel python a partir do script python. Plataforma dependente.
+
 3-> atualizações serão feitas esporadicamente, o server.py deve ser usado juntamente como o cliente_rvshell.py, uma vez que ambos em combinação é possivel aproveitar todos os recursos do exploit.
+
 4-> trabalhando em uma versao com privillege escalation.
 
+
+
 # sobre o server.py
+
 1-> a partir da conexão realizada com sucesso, escreva "h" sem aspas, ira disponibilizar o help, contendo algumas funções interessantes do exploit, dos comandos possiveis, como screenshot, pops up internet na target machine...
+
 2-> mais coisas serao adicionadas em breve
 
 
 # wintroj.cpp
+
 1-> compilar com: g++ -o seuarquivo.exe wintroj.cpp -l ws2_32 --machine=windows
+
 2-> compilção acima é caso você ja esteja dentro da maquina windows, para cross-compiling(i.e., compilar um programa para windows, estando na maquina linux, por exemplo.) use:
 
 32 bit target machine:
@@ -26,13 +35,18 @@ Atualização: esporadicamente ainda adiciono algumas coisas, visto que estou pr
 w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
 
 
-2-> versão bem raw, estou trabalhando em outro, talvez mais para frente adiciono mais coisa para ele
-3-> recomendado que o servidor no qual ele faça conexão seja o netcat, uma vez que o netcat é muito simples e de alta qualidade
+3-> versão bem raw, estou trabalhando em outro, talvez mais para frente adiciono mais coisa para ele
+
+4-> recomendado que o servidor no qual ele faça conexão seja o netcat, uma vez que o netcat é muito simples e de alta qualidade
 
 # trojan.cpp (versão linux)
+
 1-> compilação simples: g++ -o exemplo wintroj.cpp
+
 2-> usar juntamente com o netcat vai te dar total controle sobre o terminal do target, uma vez que o terminal do linux é a parte mais poderosa do OS
 
 
+
 valeu!
+
 toda ajuda ou melhora é bem vinda, uma vez que tem muita galera com ideias melhores e mais sofisticadas!
