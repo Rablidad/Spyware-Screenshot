@@ -11,6 +11,9 @@ Atualização: esporadicamente ainda adiciono algumas coisas, visto que estou pr
 
 3-> atualizações serão feitas esporadicamente, o server.py deve ser usado juntamente como o cliente_rvshell.py, uma vez que ambos em combinação é possivel aproveitar todos os recursos do exploit.
 
+5-> para que o target machine (windows) execute o programa sempre que iniciar/reiniciar, mova-o para a pasta: "C:\Users\Username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup",
+caso admin: "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
+
 4-> trabalhando em uma versao com privillege escalation.
 
 
