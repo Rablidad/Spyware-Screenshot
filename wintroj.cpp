@@ -1,3 +1,10 @@
+//////////////
+//Autor: Raique
+//Machine Target: Windows Client
+//Nickname: Rablidad
+//Versão: tem muita coisa ainda para adicionar (Não considero esta ainda uma versão final)
+/////////////
+
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <iostream>
