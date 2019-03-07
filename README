@@ -4,6 +4,17 @@ Atualização: esporadicamente ainda adiciono algumas coisas, visto que estou pr
 ######
 
 
+### SOBRE IPFORWARD file ####
+# Visto que um ataque fora da LAN sera necesario o ipforward, um script foi disponibilizado, escrito em bash.
+1-> de permissão de executavel a ele: chmod +x ipforward
+2-> e execute-o: sudo ./ipforward (se voce estiver no mesmo diretorio que ele) ou sudo /diretorio/ipforward (se você não
+estiver no mesmo diretorio que o script)
+
+OPCIONAL 1-> crie em seu diretorio '~' um arquivo com o nome: .bash_aliases
+         2 > Dentro do arquivo, escreva: alias ipf="sudo ~/ipforward"
+         @@@isso vai fazer com que voce o execute-o de qualquer path, ja com privilegios sudo, sem tem que ficar indo ao diretorio do 
+          arquivo toda vez que necessitar/desejar executa-lo.
+####################################################################
 # Sobre o cliente_rvshell.py
 1-> quando em teste, usar-lo como padrao, em casos de ataques reais, mudar a extensão '.py' para '.pyw', fazendo com que o binario python reconheça que o prompt não deve ser executado.
 
