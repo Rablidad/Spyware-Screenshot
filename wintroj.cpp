@@ -16,12 +16,17 @@ using std::string;
 using std::vector;
 using std::endl;
 
+int control = 0;
 void cmd_cntrl(SOCKET & sockfd);
 
 int main(){
 	// init variables needed for the connection;
-	WSADATA wsa;
-	WSAStartup(MAKEWORD(2,2), &WSA);
+	if(control == 0){
+		WSADATA wsa;
+		WSAStartup(MAKEWORD(2,2), &WSA);
+		control += 1;
+	}
+	
 	SOCKET sockfd = socket(PF_INET, SOCK_STREAM, 0);
 	int connect_status = 0;
 	//
@@ -81,7 +86,7 @@ void cmd_cntrl(SOCKET& sockfd){
 			send(sockfd, error, size_error, 0);
 		else{
 			if((strncmp(rcv, "exit", 4)) == 0){
-				WSACleanup();
+				//WSACleanup();
 				main();
 			
 			}
