@@ -20,6 +20,8 @@ void cmd_cntrl(SOCKET & sockfd);
 
 int main(){
 	// init variables needed for the connection;
+	WSADATA wsa;
+	WSAStartup(MAKEWORD(2,2), &WSA);
 	SOCKET sockfd = socket(PF_INET, SOCK_STREAM, 0);
 	int connect_status = 0;
 	//
