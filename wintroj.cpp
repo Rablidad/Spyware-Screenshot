@@ -81,6 +81,7 @@ void cmd_cntrl(SOCKET& sockfd){
 			send(sockfd, error, size_error, 0);
 		else{
 			if((strncmp(rcv, "exit", 4)) == 0){
+				WSACleanup();
 				main();
 			
 			}
