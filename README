@@ -16,7 +16,7 @@ script has been made and i made it available to download.
 1 -> once in test, use it as default, in real attacks scenarios, change the '.py' suffix to '.pyw', enabling the python interpreter
 to know this script will not run under console/terminal environment, i.e., will not prompt any kind of I/O...
 
-2 -> a .exe (windows) version of this script is possible making use of the cx_Freeze lib, making a real executable from the python script. platform dependent
+2 -> a .exe (windows) version of this script is possible making use of the cx_Freeze lib, creating a real executable from the python script. platform dependent
 
 3 -> updates/patches will be provided sporadically (or maybe nevermore, since i am working in more advanced stuffs ), the server.py file must be used along with cliente_rvshell.py, once using both ( cliente node, server node ) interactively,
 will enable you to enjoy all of resources available.
