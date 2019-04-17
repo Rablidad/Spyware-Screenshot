@@ -1,10 +1,68 @@
+NO SUPPORT ANYMORE
+
 #### 
 Autor: Raique
 Atualização: esporadicamente ainda adiciono algumas coisas, visto que estou priorizando alguns outros programinhas :p
 ######
 
+ENGLISH:
+### ABOUT IPFORWARD FILE ####
+# knowing an external LAN attack is going to be necessary to set you IP Forward Settings on, a very basic but efficient 
+script has been made and i made it available to download.
+1 -> give it execution's permission: chmod +x ipforward
+2 -> execute: sudo ./ipforward (if you are at the same directory of the file) otherwise, sudo /path/to/ipforward_file
 
-### SOBRE IPFORWARD file ####
+#####################################################################
+# About cliente.rvshell.py
+1 -> once in test, use it as default, in real attacks scenarios, change the '.py' suffix to '.pyw', enabling the python interpreter
+to know this script will not run under console/terminal environment, i.e., will not prompt any kind of I/O...
+
+2 -> a .exe (windows) version of this script is possible making use of the cx_Freeze lib, making a real executable from the python script. platform dependent
+
+3 -> updates/patches will be provided sporadically (or maybe nevermore, since i am working in more advanced stuffs ), the server.py file must be used along with cliente_rvshell.py, once using both ( cliente node, server node ) interactively,
+will enable you to enjoy all of resources available.
+
+##### ABOUT server.py ######
+
+1 -> from the succesfully connection established on, writing down "h" ( now quotes ), will provide you the help panel,  
+
+
+### ABOUT wintroj.cpp ###
+
+1 -> compile with: g++ -o yourfilename.exe wintroj.cpp -lws2_32 --machine=windows
+
+2 -> the above compilation should only be used with you are already within a windows machine, otherwise, you need to cross compile (i.e., from linux to windows )
+
+NOTES: in linux, you need to install `*-mingw32-gcc(g++)`( * = 1686 or w86_64 ) (respectively, 32 bits and 64 bits machine)
+
+32 bit machine compilation:
+username@distro:~$ 1686-w64-mingw32-g++ -o example.exe wintroj.cpp -l ws2_32 --machine=windows
+
+64 bit machine:
+username@distro:~$ w86_64-w64-mingw32-g++ -o example.exe wintroj.cpp -l ws232 --machine=windows
+
+OR:
+
+username@distro:~$ make 32 (for 32 bits)
+username@distro:~$ make 64 (for 64 bits)
+
+
+3 -> its a raw version, i am working on other projects, anymore supporting this one.
+
+4 -> when in use of wintroj on the client-side, highly recommended to make the server connection through netcat, once netcat is very simple and high quality.
+
+### trojan.cpp (linux) ###
+
+1 -> compilation: g++ -o exemplo trojan.cpp
+
+2 -> trojan along with netcat will give you full control over the target's terminal.
+
+THANKS!
+
+
+##############################################################################
+PORTUGUES:
+### SOBRE IPFORWARD FILE ####
 # Visto que um ataque fora da LAN sera necesario o ipforward, um script foi disponibilizado, escrito em bash.
 1-> de permissão de executavel a ele: chmod +x ipforward
 2-> e execute-o: sudo ./ipforward (se voce estiver no mesmo diretorio que ele) ou sudo /diretorio/ipforward (se você não
@@ -28,13 +86,9 @@ caso admin: "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 4-> trabalhando em uma versao com privillege escalation.
 
 
-
-# sobre o server.py
+##### SOBRE server.py ######
 
 1-> a partir da conexão realizada com sucesso, escreva "h" sem aspas, ira disponibilizar o help, contendo algumas funções interessantes do exploit, dos comandos possiveis, como screenshot, pops up internet na target machine...
-
-2-> mais coisas serao adicionadas em breve
-
 
 # wintroj.cpp
 
@@ -43,10 +97,15 @@ caso admin: "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 2-> compilção acima é caso você ja esteja dentro da maquina windows, para cross-compiling(i.e., compilar um programa para windows, estando na maquina linux, por exemplo.) use:
 
 32 bit target machine:
-1686-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
+username@distro:~$ 1686-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
 
 64 bit target machine:
-w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
+username@distro:~$ w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
+
+OR:
+
+username@distro:~$ make 32 (for 32 bits)
+username@distro:~$ make 64 (for 64 bits)
 
 
 3-> versão bem raw, estou trabalhando em outro, talvez mais para frente adiciono mais coisa para ele
@@ -55,10 +114,9 @@ w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 --machine=windows
 
 # trojan.cpp (versão linux)
 
-1-> compilação simples: g++ -o exemplo wintroj.cpp
+1-> compilação simples: g++ -o exemplo trojan.cpp
 
-2-> usar juntamente com o netcat vai te dar total controle sobre o terminal do target, uma vez que o terminal do linux é a parte mais poderosa do OS
-
+2-> usar juntamente com o netcat vai te dar total controle sobre o terminal do target.
 
 
 valeu!
