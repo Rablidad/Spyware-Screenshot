@@ -6,8 +6,7 @@ Atualização: NO SUPPORT ANYMORE
 
 ### ENGLISH: ###
 ### ABOUT IPFORWARD FILE ####
-### knowing an external LAN attack is going to be necessary to set you IP Forward Settings on, a very basic but efficient 
-script has been made and i made it available to download.###
+#### knowing an external LAN attack is going to be necessary to set you IP Forward Settings on, a very basic but efficient script has been made and i've made it available to download. ####
 1 -> give it execution's permission: chmod +x ipforward
 2 -> execute: sudo ./ipforward (if you are at the same directory of the file) otherwise, sudo /path/to/ipforward_file
 
