@@ -59,8 +59,8 @@ OR:
 THANKS!
 
 ## PORTUGUÊS: ##
-### SOBRE IPFORWARD FILE ####
-# Visto que um ataque fora da LAN sera necesario o ipforward, um script foi disponibilizado, escrito em bash.
+#### SOBRE IPFORWARD FILE ####
+#### Visto que um ataque fora da LAN sera necesario o ipforward, um script foi disponibilizado, escrito em bash.
 1-> de permissão de executavel a ele: chmod +x ipforward
 2-> e execute-o: sudo ./ipforward (se voce estiver no mesmo diretorio que ele) ou sudo /diretorio/ipforward (se você não
 estiver no mesmo diretorio que o script)
