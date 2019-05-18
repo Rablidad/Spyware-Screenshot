@@ -1,8 +1,6 @@
 # NO SUPPORT ANYMORE #
 
-#### 
 Autor: Raique
-Atualização: NO SUPPORT ANYMORE
 
 ### ENGLISH: ###
 ### ABOUT IPFORWARD FILE ####
