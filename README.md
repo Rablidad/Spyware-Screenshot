@@ -38,8 +38,8 @@ username@distro:~$ w86_64-w64-mingw32-g++ -o example.exe wintroj.cpp -l ws232 --
 
 OR:
 
-username@distro:~$ make 32 (for 32 bits)
-username@distro:~$ make 64 (for 64 bits)
+#### username@distro:~$ make 32 (for 32 bits)
+#### username@distro:~$ make 64 (for 64 bits)
 
 
 3 -> its a raw version, i am working on other projects, anymore supporting this one.
@@ -52,8 +52,9 @@ username@distro:~$ make 64 (for 64 bits)
 
 2 -> trojan along with netcat will give you full control over the target's terminal.
 
-DISCLAIMER:
-NO WARRANTY ABOUT THE FUNCTIONALITIES, I AM NOT RESPONSIBLE FOR ANY OF YOUR ACTS.
+## DISCLAIMER:
+### NO WARRANTY ABOUT THE FUNCTIONALITIES. 
+### I AM NOT RESPONSIBLE FOR ANY OF YOUR ACTS.
 
 THANKS!
 
@@ -101,8 +102,8 @@ username@distro:~$ w86_64-w64-mingw32-g++ -o exemplo.exe wintroj.cpp -l ws2_32 -
 
 OR:
 
-## username@distro:~$ make 32 (for 32 bits)
-## username@distro:~$ make 64 (for 64 bits)
+#### username@distro:~$ make 32 (for 32 bits)
+#### username@distro:~$ make 64 (for 64 bits)
 
 
 3-> versão bem raw, estou trabalhando em outro, talvez mais para frente adiciono mais coisa para ele
