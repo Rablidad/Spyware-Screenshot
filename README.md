@@ -10,7 +10,7 @@ Atualização: NO SUPPORT ANYMORE
 1 -> give it execution's permission: chmod +x ipforward
 2 -> execute: sudo ./ipforward (if you are at the same directory of the file) otherwise, sudo /path/to/ipforward_file
 
-# About cliente.rvshell.py #
+## About cliente_rvshell.py ##
 1 -> once in test, use it as default, in real attacks scenarios, change the '.py' suffix to '.pyw', enabling the python interpreter
 to know this script will not run under console/terminal environment, i.e., will not prompt any kind of I/O...
 
