@@ -52,9 +52,9 @@ OR:
 
 2 -> trojan along with netcat will give you full control over the target's terminal.
 
-## DISCLAIMER:
-### NO WARRANTY ABOUT THE FUNCTIONALITIES. 
-### I AM NOT RESPONSIBLE FOR ANY OF YOUR ACTS.
+#### DISCLAIMER:
+#### NO WARRANTY ABOUT THE FUNCTIONALITIES. 
+#### I AM NOT RESPONSIBLE FOR ANY OF YOUR ACTS.
 
 THANKS!
 
