@@ -1,6 +1,6 @@
 # NO SUPPORT ANYMORE #
 
-Autor: Raique
+Autor: Rablidad
 
 ### ENGLISH: ###
 ### ABOUT IPFORWARD FILE ####
